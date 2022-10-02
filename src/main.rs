@@ -6,23 +6,24 @@ fn main() {
         .expect("failed to read from stdin");
 
     let cidr = input.trim();
-    match cidr.parse::<usize>() {
+    match cidr.parse::<u32>() {
         Ok(_i) => println!(""),
         Err(..) => println!("this was not an integer"),
     };
 
-    let mut cidr = cidr.parse::<usize>().unwrap();
+    let mut cidr = cidr.parse::<u32>().unwrap();
     let mut count = 0;
     while cidr >= 8 {
         cidr = cidr - 8;
         count = count + 1;
     }
-    let base:u32 =2;
-    cidr = base.pow(cidr);
-    printer(cidr, count);
+    let base:u32 =10;
+    let p=u32::pow(2,cidr);
+    println!("{}",p);
+    printer(p, count);
 }
 
-fn printer(c: usize, cnt: i32) {
+fn printer(c: u32, cnt: i32) {
     let (one, two, three, four);
     match cnt {
         4 => (one, two, three, four) = (8, 8, 8, 8),
