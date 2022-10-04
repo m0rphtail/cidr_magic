@@ -17,10 +17,9 @@ fn main() {
         cidr = cidr - 8;
         count = count + 1;
     }
-    let base:u32 =10;
+    let _base:u32 =10;
     let p=u32::pow(2,cidr);
-    println!("{}",p);
-    printer(p, count);
+    printer(cidr, count);
 }
 
 fn printer(c: u32, cnt: i32) {
