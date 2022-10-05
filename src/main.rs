@@ -30,6 +30,6 @@ fn printer(c: u32, cnt: i32, nip: i32) {
         _ => (one, two, three, four) = (c, 0, 0, 0),
     };
 
-    println!("{}.{}.{}.{}", one, two, three, four);
-    println!("number of ip addresses: {}", nip);
+    println!("ip address (bytes)\t# of IPs");
+    println!("{}.{}.{}.{}\t\t\t{}", one, two, three, four, nip);
 }
