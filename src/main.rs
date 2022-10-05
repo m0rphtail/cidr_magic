@@ -1,5 +1,4 @@
 use clap::Parser;
-// use std::io;
 
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
@@ -10,30 +9,18 @@ struct Args {
 
 fn main() {
     let args = Args::parse();
-    // let mut input = String::new();
-    // io::stdin()
-    //     .read_line(&mut input)
-    //     .expect("failed to read from stdin");
 
-    // let cidr = input.trim();
-    // match cidr.parse::<u32>() {
-    //     Ok(_i) => println!(""),
-    //     Err(..) => println!("this was not an integer"),
-    // };
-
-    // let mut cidr = cidr.parse::<u32>().unwrap();
     let mut cidr = args.cidr;
     let mut count = 0;
     while cidr >= 8 {
         cidr = cidr - 8;
         count = count + 1;
     }
-    let _base: u32 = 10;
-    // let p = u32::pow(2, cidr);
-    printer(cidr, count);
+    let nip = i32::pow(2, args.cidr);
+    printer(cidr, count, nip);
 }
 
-fn printer(c: u32, cnt: i32) {
+fn printer(c: u32, cnt: i32, nip: i32) {
     let (one, two, three, four);
     match cnt {
         4 => (one, two, three, four) = (8, 8, 8, 8),
@@ -43,5 +30,6 @@ fn printer(c: u32, cnt: i32) {
         _ => (one, two, three, four) = (c, 0, 0, 0),
     };
 
-    println!("{}.{}.{}.{}", one, two, three, four)
+    println!("{}.{}.{}.{}", one, two, three, four);
+    println!("number of ip addresses: {}", nip);
 }
