@@ -16,11 +16,11 @@ fn main() {
         cidr = cidr - 8;
         count = count + 1;
     }
-
-    printer(cidr, count);
+    let nip = i32::pow(2, args.cidr);
+    printer(cidr, count, nip);
 }
 
-fn printer(c: u32, cnt: i32) {
+fn printer(c: u32, cnt: i32, nip: i32) {
     let (one, two, three, four);
     match cnt {
         4 => (one, two, three, four) = (8, 8, 8, 8),
@@ -30,5 +30,6 @@ fn printer(c: u32, cnt: i32) {
         _ => (one, two, three, four) = (c, 0, 0, 0),
     };
 
-    println!("{}.{}.{}.{}", one, two, three, four)
+    println!("{}.{}.{}.{}", one, two, three, four);
+    println!("number of ip addresses: {}", nip);
 }
